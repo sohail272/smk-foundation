@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_04_09_194601) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_194601) do
   create_table "donors", force: :cascade do |t|
     t.string "name", default: ""
     t.float "donate_amount", default: 0.0
-    t.integer "mode_of_payment_id"
+    t.bigint "mode_of_payment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mode_of_payment_id"], name: "index_donors_on_mode_of_payment_id"
