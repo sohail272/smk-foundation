@@ -22,8 +22,8 @@
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5"><%= @home_page_content.title %></h1>
-            <h3 class="mb-5"><%= @home_page_content.sub_title %></h3>
+            <h1 class="mb-5"><%= @home_page_content.title rescue "" %></h1>
+            <h3 class="mb-5"><%= @home_page_content.sub_title rescue "" %></h3>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
