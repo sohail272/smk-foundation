@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_194601) do
+ActiveRecord::Schema.define(version: 2021_04_10_114830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 2021_04_09_194601) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mode_of_payment_id"], name: "index_donors_on_mode_of_payment_id"
+  end
+
+  create_table "expenditures", force: :cascade do |t|
+    t.string "purpose", default: ""
+    t.float "amount_spent", default: 0.0
+    t.bigint "mode_of_payment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mode_of_payment_id"], name: "index_expenditures_on_mode_of_payment_id"
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.string "title", default: ""
+    t.string "sub_title", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "mode_of_payments", force: :cascade do |t|

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :admins
     resources :donors
     resources :mode_of_payments
+    resources :expenditures
+    resources :homes
 
     root to: "admins#index"
   end
